@@ -38,7 +38,7 @@ Entire verification system to validate fields with personalized messages.
    </tr>
 </table>
 
-## The Sequence Diagram was developed for to study the application trading rules:
+## The Sequence Diagram was developed to study the application trading rules:
 
 ![Screenshot_1](https://user-images.githubusercontent.com/103866012/229593477-c6a689f9-5825-4234-8253-fc95430b7782.png)
 
