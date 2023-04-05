@@ -1,4 +1,4 @@
-<h1>spring-boot-api-candidate-email-sender</h1>
+<h1>Spring-boot-api-candidate-email-sender</h1>
 
 > Status: Developing ⚠️
 
