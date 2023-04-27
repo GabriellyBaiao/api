@@ -2,15 +2,56 @@ package br.com.vivo.api.service;
 
 import br.com.vivo.api.dtos.CandidateDTO;
 import br.com.vivo.api.dtos.SkillDTO;
+import br.com.vivo.api.exception.UserNotFoundException;
+import br.com.vivo.api.model.Candidate;
 import br.com.vivo.api.model.ProgrammingLanguages;
+import br.com.vivo.api.repository.CandidateRepository;
 import jakarta.mail.MessagingException;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Service
+@Transactional
 public class CandidateService {
+
+        @Autowired
+        private final CandidateRepository candidateRepository;
+
+        @Autowired
+        public CandidateService(CandidateRepository candidateRepository) {
+            this.candidateRepository = candidateRepository;
+        }
+
+        public Candidate addCandidate(Candidate candidate) {
+            return candidateRepository.save(candidate);
+        }
+
+        public List<Candidate> findAllCandidates() {
+
+            return candidateRepository.findAll();
+        }
+
+        public Candidate updateCandidate(Candidate candidate) {
+
+            return candidateRepository.save(candidate);
+        }
+
+        public Candidate findCandidateById(Long id) {
+            return candidateRepository.findCandidateById(id)
+                    .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
+        }
+
+        public void deleteCandidate(Long id){
+
+            candidateRepository.deleteCandidateById(id);
+        }
+
+
 
     public void CandidateTest(CandidateDTO candidate) {
         String name, email;

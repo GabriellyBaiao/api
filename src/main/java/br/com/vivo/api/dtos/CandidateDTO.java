@@ -16,7 +16,6 @@ import java.util.List;
 @ToString
 public class CandidateDTO {
 
-    private static long id;
     @NotBlank(message = "Nome não informado")
     @Size(min = 3, max = 25, message = "Nome não informado")
     @Pattern(message = "Inicie seu nome com letra maiúscula!.", regexp ="^[A-Z]+(.)*")
